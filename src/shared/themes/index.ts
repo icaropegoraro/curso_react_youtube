@@ -1,1 +1,2 @@
-export * from './light';
+export * from './LightTheme'
+export * from './DarkTheme'
