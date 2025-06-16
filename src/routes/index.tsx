@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Dashboard } from "../pages";
+import { Dashboard, Login } from "../pages";
 
 function AppRoutes() {
   return (
@@ -8,10 +8,15 @@ function AppRoutes() {
         path="/pagina-inicial"
         element={<Dashboard/>}
       />
+
+      <Route
+        path="/login"
+        element={<Login/>}
+      />
       
       <Route
         path="*"
-        element={<Navigate to="/pagina-inicial" />}
+        element={<Navigate to='/pagina-inicial'/>}
       />
     </Routes>
   );
