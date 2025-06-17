@@ -1,7 +1,7 @@
-import { BrowserRouter } from "react-router-dom";
-import AppRoutes from './routes/index'; // sem { } porque você está usando export default
-import { ThemeProvider } from "@mui/material"
-import { DarkTheme } from "./shared/themes";
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from './routes/index'
+import { ThemeProvider } from '@mui/material'
+import { DarkTheme } from './shared/themes'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <AppRoutes />
       </BrowserRouter>
     </ThemeProvider>
-  );
+  )
 }
 
 export default App;
