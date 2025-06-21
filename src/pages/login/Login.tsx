@@ -1,30 +1,44 @@
-import { useState } from 'react'
+import { useState, useMemo, useRef, useCallback } from 'react'
+import { InputLogin } from './components/InputLogin'
 
 export const Login = () => {
+
+    const inputPasswordRef = useRef<HTMLInputElement>(null)
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
-    const handleEntrar = () => {
+    const emailLength = useMemo(() => {
+        return email.length * 1000
+    }, [email]);
+
+    const handleEntrar = useCallback(() => {
         console.log(email)
         console.log(senha)
-    }
+    },[email, senha])
+
     return (
         <div>
             <form action="">
 
-                <label>
-                    <span>Email</span>
-                    <input type='email' value={email} onChange={ evento => setEmail(evento.target.value)}/>
-                </label>
+                <p>Quantidade de caracteres: {emailLength}</p>
+
+                <InputLogin
+                    label='Email'
+                    onChange={newValue => setEmail(newValue)}
+                    value={email}
+                    onPressEnter={() => inputPasswordRef.current?.focus()}
+                />
 
                 <br/>
                 <br/>
 
-                <label>
-                    <span>Senha</span>
-                    <input type='password' value={senha} onChange={ evento => setSenha(evento.target.value)}/>
-                </label>
+                <InputLogin
+                    label='Senha'
+                    onChange={newValue => setSenha(newValue)}
+                    value={senha}
+                    type='password'
+                />
 
                 <br />
                 <br />
